@@ -1,0 +1,256 @@
+- 게시판 컨트롤러 만들기 (crud/CrudBoardController)
+- 게시판 등록 화면 컨트롤러 메소드 만들기(crudRegister:get)
+- 게시판 등록 화면 만들기 (crud/register.jsp)
+- 여기까지 확인
+
+- 게시판 등록 기능 컨트롤러 메소드 만들기 (crudRegister:post)
+- 게시판 등록 기능 서비스 인터페이스 메소드 만들기
+- 게시판 등록 기능 서비스 클래스 메소드 만들기
+- 게시판 등록 기능 Mapper 인터페이스 메소드 만들기
+- 게시판 등록 기능 Mapper xml 쿼리 만들기
+- 게시판 등록 완료 페이지 만들기
+- 여기까지 확인
+
+- 게시판 목록 화면 컨트롤러 메소드 만들기 (crudList:get)
+- 게시판 목록 화면 서비스 인터페이스 메소드 만들기
+- 게시판 목록 화면 서비스 클래스 메소드 만들기
+- 게시판 목록 화면 Mapper 인터페이스 메소드 만들기
+- 게시판 목록 화면 Mapper xml 쿼리 만들기
+- 게시판 목록 화면 Mapper xml 쿼리 만들기
+- 게시판 목록 화면  만들기 (crud/list.jsp)
+- 여기까지 확인
+
+- 게시판 상세 화면 컨트롤러 메소드 만들기 (crudRead:get)
+- 게시판 상세 화면 서비스 인터페이스 메소드 만들기
+- 게시판 상세 화면 서비스 클래스 메소드 만들기
+- 게시판 상세 화면 Mapper 인터페이스 메소드 만들기
+- 게시판 상세 화면 Mapper xml 인터페이스 메소드 만들기
+- 게시판 상세 화면 만들기 (crud/read.jsp)
+- 여기까지 확인
+
+- 게시판 수정 화면 컨트롤러 메소드 만들기 (crudModify:get)
+- 게시판 수정 화면 서비스 인터페이스 메소드 만들기
+- 게시판 수정 화면 서비스 클래스 메소드 만들기
+- 게시판 수정 화면 Mapper 인터페이스 메소드 만들기
+- 게시판 수정 화면 Mapper xml 쿼리 만들기
+- 게시판 수정 화면 만들기  (crud/register.jsp)
+- 게시판 수정 기능 컨트롤러 메소드 만들기  (crudModify:post)
+- 게시판 수정 기능 서비스 인터 페이스 메소드 만들기
+- 게사판 수정 기능 서비스 클래스 메소드 만들기
+- 게시판 수정 기능 Mapper 인터페이스 메소드 만들기
+- 게시판 수정 기능 Mapper xml 쿼리 만들기
+- 여기까지 확인
+
+- 게시판 삭제 기능 컨트롤러 메소드 만들기 (crudRemove:post)
+- 게시판 삭제 기능 서비스 인터페이스 메소드 만들기
+- 게시판 삭제 기능 서비스 클래스 메소드 만들기
+- 게시판 삭제 기능 Mapper 인터페이스 메소드 만들기
+- 게시판 삭제 기능 Mapper xml 쿼리 만들기
+- 여기까지 확인
+
+
+
+
+7. 일대다 관계 테이블 매핑
+	- 마이바티스 기능을 활용하여 매핑 파일을 적절하게 정의하면 일대다 관계 테이블 매핑을 쉽게 처리할 수 있다.
+
+	1)게시판 구현 설명
+		- 회원 등록 화면 컨트롤러 만들기 (crud/CrudMemberController)
+		- 회원 등록 화면 컨트롤러 메소드 만들기
+		- 회원 등록 화면 만들기 (crud/member/register.jsp)
+		- 여기까지 확인
+
+		- 회원 등록 기능 컨트롤러 만들기 (CrudMemberController:post)
+		- 회원 등록 기능 인터페이스 메소드 만들기
+		- 회원 등록  기능 클래스 메소드 만들기
+		- 회원 등록  기능 Mapper 인터페이스 메소드 만들기
+		- 회원 등록  기능 Mapper xml 쿼리 만들기
+		- 회원 등록 기능 만들기 (crud/member/success.jsp)
+		- 여기까지 확인
+
+		- 회원 목록 화면 컨트롤러 메소드 만들기 (CrudMemberList:get)
+		- 회원 목록 기능 서비스 인터페이스 메소드 만들기
+		- 회원 목록  기능 서비스 클래스 메소드 만들기
+		- 회원 목록  기능 Mapper 인터페이스 메소드 만들기
+		- 회원 목록  기능 Mapper xml 쿼리 만들기
+		- 회원 목록 화면 만들기 (crud/member/list.jsp)
+		- 여기까지 확인
+
+		- 회원 상세화면 컨트롤러 메소드 만들기 (CrudMemberRead:get)
+		- 회원 상세화면 서비스 인터페이스 메소드 만들기
+		- 회원 상세화면 서비스 클래스 메소드 만들기
+		- 회원 상세화면 Mapper 인터페이스 메소드 만들기
+		- 회원 상세화면 Mapper xml 쿼리 만들기
+		- 회원 상세화면 화면 만들기 (crud/member/read.jsp)
+		- 여기까지 확인
+
+		- 회원 수정 화면 컨트롤러 메소드 만들기 (CrudMemberModify:get)
+		- 회원 수정 화면 서비스 인터페이스 메소드 만들기
+		- 회원 수정 화면 서비스 클래스 메소드 만들기
+		- 회원 수정 화면 Mapper 인터페이스 메소드 만들기
+		- 회원 수정 화면 Mapper xml 쿼리 만들기
+		- 회원 수정 화면 페이지 만들기 (crud/member/modify.jsp)
+		- 여기까지 확인
+
+		- 회원 수정 기능 컨트롤러 메소드 만들기 (CrudMemberModify:post)
+		- 회원 수정 기능 서비스 인터페이스 메소드 만들기
+		- 회원 수정 기능 서비스 클래스 메소드 만들기
+		- 회원 수정 기능 Mapper 인터페이스 메소드 만들기
+		- 회원 수정 기능 Mapper xml 쿼리 만들기
+		- 여기까지 확인
+
+		- 회원 삭제 기능 컨트롤러 메소드 만들기 (CrudMemberDelete:post)
+		- 회원 삭제 기능 서비스 인터페이스 메소드 만들기
+		- 회원 삭제 기능 서비스 클래스 메소드 만들기
+		- 회원 삭제 기능 Mapper 인터페이스 메소드 만들기
+		- 회원 삭제 기능 Mapper xml 쿼리 만들기
+		- 여기까지 확인
+		
+		
+		
+		
+3-1) 데이터베이스 준비
+	notice table, noticefile table 생성
+	notice sequence, noticefile sequence 생성
+3-2) 게시판 작성
+- 게시판 목록 컨트롤러 만들기 (crud/notice/NoticeRetrieveController)
+- 게시판 목록 화면 컨트롤러 메소드 만들기
+- 게시판 목록 화면 만들기 (noticeboard/list.jsp)
+- 여기까지 확인
+
+- 게시판 목록 화면 서비스 인터페이스 메소드 만들기
+- 게시판 목록 화면 서비스 큻래스 메소드 만들기
+- 게시판 목록 화면 Mapper 인터페이스 메소드 만들기
+- 게시판 목록 화면 Mapper xml 인터페이스 메소드 만들기
+- 게시판 목록 화면 페이지에서 페이징 적용된 목록 확인
+- 여기까지 확인
+
+- 게시판 등록 컨트롤러 만들기 (crud/NoticeInsertController)
+- 게시판 등록 화면 컨트롤러 메소드 만들기 (noticeInsertForm:get)
+- 게시판 등록 화면 만들기 (noticeboard/form.jsp)
+- 게시판 등록 기능 컨트롤러 메소드 만들기 (noticeInsert:post)
+- 게시판 등록 기능 서비스 인터페이스 메소드 만들기
+- 게시판 등록 기능 서비스 클래스 메소드 만들기
+- 게시판 등록 기능 Mapper 인터페이스 메소드 만들기
+- 게시판 등록 기능 Mapper xml 쿼리 만들기
+- 여기까지 확인
+
+- 게시판 상세 화면 컨트롤러 메소드 만들기 (noticeDetail:get)
+- 게시판 상세 화면 서비스 인터페이스 메소드 만들기
+- 게시판 상세 화면 서비스 클래스 메소드 만들기
+- 게시판 상세 화면 Mapper 인터페이스 메소드 만들기
+- 게시판 상세 화면 Mapper xml 쿼리 만들기
+- 게시판 상세 화면 만들기 (noticeboard/detail.jsp)
+- 여기까지 확인
+
+- 게시판 수정 화면 컨트롤러 메소드 만들기 (noticeUpdateForm : get)
+- 게시판 수정 화면 만들기 (noticeboard/form.jsp)
+- 게시판 수정 기능 컨트롤러 메소드 만들기 (noticeUpdate : post)
+- 게시판 수정 기능 서비스 인터페이스 메소드 만들기
+- 게시판 수정 기능 서비스 클래스 메소드 만들기
+- 게시판 수정 기능 Mapper 인터페이스 메소드 만들기
+- 게시판 수정 기능 Mapper xml 쿼리 만들기
+- 여기까지 확인
+	
+	- 게시판 삭제 기능 컨트롤러 메소드 만들기 (noticeUpdateForm : get)
+	- 게시판 삭제 기능 서비스 인터페이스 메소드 만들기
+	- 게시판 삭제 기능 서비스 클래스 메소드 만들기
+	- 게시판 삭제 기능 Mapper 인터페이스 메소드 만들기
+	- 게시판 삭제 기능 Mapper xml 쿼리 만들기
+	- 여기까지 확인	
+		
+		
+		
+		
+		
+1. 파일 업로드 설명
+	- 서블릿 3.0에서 지원하는 파일 업로드 기능과 스프링 웹에서 제공하는 컴포넌트를 사용하려 파일을 업로드 한다.
+	# 파일 업로드 설정
+		1) 서블릿 3.0 이상 지원
+		2) 서블릿 표준 파일 업로드 기능을 활성화
+		3) 스프링 MVC와 연계
+		4) 업로드 된 파일 저장 위치 설정
+	# 환경 설정
+		1) 의존 관계 정의
+			- 파일을 처리하기 위해서 의존 라이브러리를 추가한다.
+				> pom.xml commons-io 추가
+		2) 웹 컨테이너 설정
+			> web.xml 서블릿 표준 버전 3.1로 설정
+			> multipart-config 활성화 (web.xml의 servlet 태그 내 설정)
+		3) 스프링 웹 설정
+			> servlet-context.xml
+			> multipartResolver Bean 등록 (id는 multipartResolver로 설정)
+			[ 파일 업로드 설정 ]
+			파일 업로드를 설정하는 방식은 2가지 있다.
+			- StandardServletMultipartResolver 사용 시 설정,
+				> Servlet 3.0의 Part를 이용한 MultipartFile 데이터 처리
+				> servlet-context.xml에  설정
+					> StandardServletMultipartResolver bean 등록
+				> web.xml에 설정
+					> multipart-config (servlet 태그 안에 설정)
+			- CommonsMultipartResolver 사용 시 설정, (우리가 사용할 방식)
+				> Commons Fileupload API를 이용한 MultipartFile 데이터 처리
+				> bean 속성으로 maxUploadSize, maxInMemorySize 및 defaultEncoding 설정을 제공
+				> 기본값 및 허용되는 값에 대한 자세한 내용은 각 DiskFileUpload 속성을 참조
+				> pom.xml 설정
+					> commons-fileupload 추가
+				> root-context.xml에 설정
+					> CommonsMultipartResolver bean 등록
+			- root-context.xml 에 설정
+				> uploadPath bean 설정
+			- multipartFilter 필터 등록
+				> web.xml
+	# 데이터베이스 준비
+		- item 테이블 생성 (item, item2, item3, item3_attach)
+2. 이미지 업로드
+	- 한개의 이미지를 업로드 하는 기본 파일 업로드 기능을 구현합니다.
+	# 파일 업로드 구현 설명
+		- 파일 업로드 등록 화면 컨트롤러 만들기 (FileUploadController01)
+		- 파일 업로드 등록 화면 컨트롤러 메소드 만들기 (itemRegisterForm : get)
+		- 파일 업로드 등록 화면 만들기 (item/register.jsp)
+		- 여기까지 확인
+
+		- 파일 업로드 등록 기능 컨트롤러 메소드 만들기 (itemRegister:post)
+		- 파일 업로드 등록 기능 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 등록 기능 서비스 클래스 메소드 만들기
+		- 파일 업로드 등록 기능 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 등록 기능 Mapper xml 쿼리 만들기
+		- 여기까지 확인
+		
+		- 파일 업로드 목록 화면 컨트롤러 메소드 만들기 (itemList.get)
+		- 파일 업로드 목록 화면 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 목록 화면 서비스 클래스 메소드 만들기
+		- 파일 업로드 목록 화면 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 목록 화면 Mapper xml 쿼리 만들기
+		- 파일 업로드 목록 화면 만들기 (item/list.jsp)
+		- 여기까지 확인
+		
+		- 파일 업로드 수정 화면 컨트롤러 메소드 만들기 (itemModifyForm.get)
+		- 파일 업로드 수정 화면 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 수정 화면 서비스 클래스 메소드 만들기
+		- 파일 업로드 수정 화면 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 수정 화면 Mapper xml 쿼리 만들기
+		- 파일 업로드 수정 화면 만들기 (item/modify.jsp)
+ 		- 여기까지 확인
+		
+		- 파일 업로드 수정 기능 컨트롤러 메소드 만들기 (itemModifyForm.post)
+		- 파일 업로드 수정 기능 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 수정 기능 서비스 클래스 메소드 만들기
+		- 파일 업로드 수정 기능 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 수정 기능 Mapper xml 쿼리 만들기
+ 		- 여기까지 확인
+		
+		- 파일 업로드 삭제 화면 컨트롤러 메소드 만들기 (itemRemoveForm.get)
+		- 파일 업로드 삭제 화면 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 삭제 화면 서비스 클래스 메소드 만들기
+		- 파일 업로드 삭제 화면 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 삭제 화면 Mapper xml 쿼리 만들기
+		- 파일 업로드 삭제 화면 만들기 (item/remove.jsp)
+ 		- 여기까지 확인
+		
+		- 파일 업로드 삭제 기능 컨트롤러 메소드 만들기 (itemRemoveForm.post)
+		- 파일 업로드 삭제 기능 서비스 인터페이스 메소드 만들기
+		- 파일 업로드 삭제 기능 서비스 클래스 메소드 만들기
+		- 파일 업로드 삭제 기능 Mapper 인터페이스 메소드 만들기
+		- 파일 업로드 삭제 기능 Mapper xml 쿼리 만들기
+ 		- 여기까지 확인		

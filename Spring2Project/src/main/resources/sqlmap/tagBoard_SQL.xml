@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.ITagBoardMapper">
+
+	<resultMap type="tagBoard" id="boardMap">
+		<id property="boNo" column="bo_no"/>
+		
+		<result property="boNo" column="bo_no"/>
+		<result property="boTitle" column="bo_title"/>
+		<result property="boContent" column="bo_content"/>
+		<result property="boWriter" column="bo_writer"/>
+		<result property="boDate" column="bo_date"/>
+		<result property="boHit" column="bo_hit"/>
+		
+		<collection property="tagList" resultMap="tagMap"/>
+	</resultMap>
+
+	<resultMap type="tag" id="tagMap">
+		<result property="boNo" column="bo_no"/>
+		<result property="tagName" column="tag_name"/>
+	</resultMap>
+	
+	<insert id="create" parameterType="tagBoard" useGeneratedKeys="true">
+		<selectKey keyProperty="boNo" resultType="int" order="BEFORE">
+			select seq_tagboard.nextval from dual
+		</selectKey>
+		insert into tagboard(
+			bo_no, bo_title, bo_content, bo_writer, bo_date, bo_hit
+		) values (
+			#{boNo}, #{boTitle}, #{boContent}, #{boWriter}, sysdate, 0
+		) 
+	</insert>
+	
+	<insert id="createTag" parameterType="tag">
+		insert into tag(
+			bo_no, tag_name
+		) values (
+			#{boNo}, #{tagName}
+		) 
+	</insert>
+	
+	<select id="list" resultType="tagBoard">
+		select 
+			bo_no, bo_title, bo_content, bo_writer, bo_date, bo_hit
+		from tagboard
+	</select>
+	
+	<select id="readTag" parameterType="int" resultType="tag">
+		select 
+			bo_no, tag_name
+		from tag
+		where bo_no = #{boNo}
+	</select>
+	
+	<select id="detail" parameterType="int" resultType="tagBoard">
+	    select 
+			bo_no, bo_title, bo_content, bo_writer, bo_date, bo_hit
+		from tagboard
+		where bo_no = #{boNo}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from tagboard
+		where bo_no = #{boNo}
+	</delete>
+	
+	<delete id="deleteTag" parameterType="int">
+		delete from tag
+		where bo_no = #{boNo}
+	</delete>
+	
+	<update id="modify" parameterType="tagBoard">
+		update tagboard
+		set
+			bo_title = #{boTitle},
+			bo_writer = #{boWriter},
+			bo_content = #{boContent}
+		where bo_no = #{boNo}
+	</update>
+	
+	<update id="countHit" parameterType="int">
+		update tagboard
+		set
+			bo_hit = bo_hit + 1
+		where bo_no = #{boNo}
+	</update>
+	
+</mapper>

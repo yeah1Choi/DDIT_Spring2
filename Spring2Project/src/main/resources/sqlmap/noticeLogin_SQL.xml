@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.loginMapper">
+
+	<select id="loginCheck" parameterType="noticeMemberVO"
+		resultType="noticeMemberVO">
+		select
+			mem_no, mem_id, mem_pw, mem_name, mem_gender, mem_email, mem_phone,
+			mem_postcode, mem_address1, mem_address2, mem_agree, mem_profileimg, mem_regdate
+		from noticemember
+		where mem_id = #{memId}
+		and mem_pw = #{memPw}
+	</select>
+
+	<select id="idCheck" parameterType="String" resultType="noticeMemberVO">
+		select
+			mem_no, mem_id, mem_pw, mem_name, mem_gender, mem_email, mem_phone,
+			mem_postcode, mem_address1, mem_address2, mem_agree, mem_profileimg, mem_regdate
+		from noticemember
+		where mem_id = #{memId}
+	</select>
+	
+	<insert id="signup" parameterType="noticeMemberVO">
+		insert into noticemember(
+			mem_no, mem_id, mem_pw, mem_name, mem_gender, mem_email, mem_phone,
+			mem_postcode, mem_address1, mem_address2, mem_agree, mem_profileimg, mem_regdate, enabled
+		) values (
+			seq_noticemember.nextval, #{memId},#{memPw},#{memName}, #{memGender},
+			#{memEmail},#{memPhone},#{memPostCode},#{memAddress1},#{memAddress2},#{memAgree},#{memProfileImg},
+			sysdate, 1
+		)
+	</insert>
+	
+	<select id="findId" parameterType="noticeMemberVO" resultType="noticeMemberVO">
+		select 
+			mem_no, mem_id, mem_pw, mem_name, mem_gender, mem_email, mem_phone,
+			mem_postcode, mem_address1, mem_address2, mem_agree, mem_profileimg, mem_regdate, enabled
+		from noticemember
+		where mem_email = #{memEmail} and mem_name = #{memName}
+	</select>
+	
+	<select id="findPw" parameterType="noticeMemberVO" resultType="noticeMemberVO">
+		select 
+			mem_no, mem_id, mem_pw, mem_name, mem_gender, mem_email, mem_phone,
+			mem_postcode, mem_address1, mem_address2, mem_agree, mem_profileimg, mem_regdate, enabled
+		from noticemember
+		where mem_id = #{memId} and mem_email = #{memEmail} and mem_name = #{memName}
+	</select>
+</mapper>
