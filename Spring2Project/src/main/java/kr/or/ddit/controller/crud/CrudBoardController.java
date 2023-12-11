@@ -61,7 +61,7 @@ public class CrudBoardController {
 	}
 	
 	@RequestMapping(value="/read", method=RequestMethod.GET)
-	public String crudRead(int boardNo, Model model) {
+	public String crudRead(int boardNo, Model model) throws Exception {
 		log.info("crudRead() 실행");
 		
 		Board board = service.read(boardNo);
@@ -71,7 +71,7 @@ public class CrudBoardController {
 	}
 	
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public String crudModifyForm(int boardNo, Model model) {
+	public String crudModifyForm(int boardNo, Model model) throws Exception {
 		log.info("crudModifyForm() 실행");
 		
 		Board board = service.read(boardNo);

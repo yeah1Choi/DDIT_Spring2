@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.or.ddit.controller.crud.BoardRecordNotFoundException;
 import kr.or.ddit.mapper.IBoardMapper;
 import kr.or.ddit.service.IBoardService;
 import kr.or.ddit.vo.Board;
@@ -44,8 +45,14 @@ public class BoardServiceImpl implements IBoardService {
 	}
 
 	@Override
-	public Board read(int boardNo) {
-		return mapper.read(boardNo);
+	public Board read(int boardNo) throws Exception {
+		Board board = mapper.read(boardNo);
+		
+		if(board == null) {
+			throw new BoardRecordNotFoundException("Not Found boardNo = " + boardNo);
+		}
+		
+		return board;
 	}
 
 	@Override

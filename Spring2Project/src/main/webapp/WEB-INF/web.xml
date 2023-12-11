@@ -22,7 +22,14 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
+		
+		<init-param>
+			<param-name>throwExceptionIfNoHandlerFound</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		
 		<load-on-startup>1</load-on-startup>
+		
 		<!-- 
 			web.xml의 설정은 WAS(Tomcat) 자체 설정일 뿐입니다.
 			multipart-config : 메모리 사이즈, 업로드 파일 저장 위치, 최대 크기 설정
@@ -92,4 +99,33 @@
 	 	<filter-name>MultipartFilter</filter-name>
 	 	<url-pattern>/*</url-pattern>
 	 </filter-mapping>
+	 
+	 <!-- 3. 상태 코드를 사용한 이동대상 페이지 설정 -->
+<!--  	 <error-page>
+	 	<error-code>400</error-code>
+	 	<location>/WEB-INF/views/error/errorCommon400.jsp</location>
+	 </error-page>
+	 <error-page>
+	 	<error-code>404</error-code>
+	 	<location>/WEB-INF/views/error/errorCommon404.jsp</location>
+	 </error-page>
+	 <error-page>
+	 	<error-code>500</error-code>
+	 	<location>/WEB-INF/views/error/errorCommon500.jsp</location>
+	 </error-page> -->
+	 <!-- 3. 상태 코드를 사용한 이동대상 페이지 설정 끝 -->
+	 
+	 <!-- 4. 예외 타입을 사용한 이동 대상 페이지 설정 -->
+<!-- 	 <error-page>
+	 	<exception-type>java.lang.Exception</exception-type>
+	 	<location>/WEB-INF/views/error/errorCommon.jsp</location>
+	 </error-page> -->
+	 <!-- 4. 예외 타입을 사용한 이동 대상 페이지 설정 끝 -->
+	 
+	 <!-- 5. 기본 에러 페이지 설정 -->
+<!--   	 <error-page>
+ 		<location>/WEB-INF/views/error/errorCommon.jsp</location>
+	 </error-page> -->
+	 <!-- 5. 기본 에러 페이지 설정 끝 -->
+	 
 </web-app>

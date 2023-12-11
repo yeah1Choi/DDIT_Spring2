@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +11,17 @@
 </head>
 <body>
 	<h2>REGISTER</h2>
-	<form action="/crud/board/register" method="post" id="registerForm">
+	<form:form modelAttribute="registerForm" action="/crud/board/register" method="post">
 		<c:if test="${status eq 'u' }">
 			<input type="hidden" name="boardNo" value="${board.boardNo }">
 		</c:if>
 		<table border="1">
 			<tr>
 				<td>제목</td>
-				<td> <input type="text" name="title" id="title" value="${board.title }"> </td>
+				<td> 
+					<form:input path='title2' />
+					<%-- <input type="text" name="title" id="title" value="${board.title }"> --%> 
+				</td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -45,7 +49,7 @@
 				<input type="button" id="listBtn" value="목록">
 			</c:if>
 		</div>
-	</form>
+	</form:form>
 </body>
 <script type="text/javascript">
 $(function(){

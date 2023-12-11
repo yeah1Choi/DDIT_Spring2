@@ -51,6 +51,24 @@
 	 -->
 	<!-- <beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</beans:bean> -->
+	
+	<!-- 인터셉터 설정 : LoginInterceptor 클래스를 빈으로 정의 : 설정한 클래스는 해당 위치에 존재해야함(설정에 맞는 위치에 존재 !) -->
+	<beans:bean id="LoginInterceptor" class="kr.or.ddit.controller.intercept.LoginInterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/login1"/>
+			<beans:ref bean="LoginInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	<beans:bean id="accessLoggingInterceptor" class="kr.or.ddit.controller.intercept.AccessLoggingInterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**"/>
+			<beans:ref bean="accessLoggingInterceptor"/>
+		</interceptor>
+	</interceptors>
 
 </beans:beans>
 

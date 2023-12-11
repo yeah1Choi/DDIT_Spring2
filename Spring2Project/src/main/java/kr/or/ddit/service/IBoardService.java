@@ -11,7 +11,7 @@ public interface IBoardService {
 
 	public List<Board> list();
 
-	public Board read(int boardNo);
+	public Board read(int boardNo) throws Exception;
 
 	public void modify(Board board);
 

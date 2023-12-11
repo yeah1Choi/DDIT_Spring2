@@ -1,4 +1,4 @@
-package kr.or.ddit.controller.validation;
+                                                                                                                                                                       package kr.or.ddit.controller.validation;
 
 import java.util.List;
 
@@ -36,6 +36,9 @@ public class validationController {
 	 * 			> @Validated를 지정한다
 	 * 			> 입력값 검증 대상의 도메인 클래스 직후에 BindingResult를 정의한다
 	 * 			BindingResult에는 요청 데이터의 바인딩 오류와 입력값 검증 오류 정보가 저장된다.
+	 * 			
+	 * 			** 바인딩 오류
+	 * 			: 프로그래밍에서 변수나 함수와 같은 식별자와 그에 해당하는 값 또는 동작을 서로 연결하는 과정에서 발생할 수 있는 오류
 	 * 		
 	 * 		# 입력값 검증 환경설정 순서
 	 * 		1. 입력값 검증을 위한 의존 라이브러리 추가
@@ -65,7 +68,7 @@ public class validationController {
 		if(result.hasErrors()) {
 			return "validation/registerValidationForm01";
 		}
-	return "validation/success";
+		return "validation/success";
 	}
 	
 	/*
