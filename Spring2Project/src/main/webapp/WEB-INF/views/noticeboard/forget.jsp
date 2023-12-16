@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <div class="">
 	<div class="card card-outline card-primary">
 		<div class="card-header text-center">
@@ -104,6 +105,9 @@ $(function(){
 			url : "/notice/findId.do",
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
+			beforeSend : function(xhr){	// 데이터 전송 전 헤더에 csrf 값 설정
+				xhr.setRequestHeader(header, token);
+			},
 			success : function(res){
 				var resId = res.memId;
 				if(resId == null || resId == ""){
@@ -150,6 +154,9 @@ $(function(){
 			url : "/notice/findPw.do",
 			data : JSON.stringify(data),
 			contentType : "application/json;charset=utf-8",
+			beforeSend : function(xhr){	// 데이터 전송 전 헤더에 csrf 값 설정
+				xhr.setRequestHeader(header, token);
+			},
 			success : function(res){
 				var resPw = res.memPw;
 				if(resPw == null || resPw == ""){

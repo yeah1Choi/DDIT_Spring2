@@ -26,6 +26,7 @@
 		<typeAlias type="kr.or.ddit.vo.crud.NoticeVO" alias="noticeVO"/>
 		<typeAlias type="kr.or.ddit.vo.crud.PaginationInfoVO" alias="pagingVO"/>
 		<typeAlias type="kr.or.ddit.vo.crud.NoticeMemberVO" alias="noticeMemberVO"/>
+		<typeAlias type="kr.or.ddit.vo.crud.NoticeMemberAuthVO" alias="noticeMemberAuthVO"/>
 	
 		<typeAlias type="kr.or.ddit.vo.test.TagBoardVO" alias="tagBoard"/>
 		<typeAlias type="kr.or.ddit.vo.test.TagVO" alias="tag"/>

@@ -12,15 +12,13 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 public class CommonExceptionHandler {
 	
 	// @ExceptionHandler :  괄호 안에 설정한 예외 타입을 해당 메소드가 처리한다는 것을 의미한다.
-	@ExceptionHandler(Exception.class)
-	public String handle(Exception e, Model model) {
-		model.addAttribute("exception", e);
-		return "error/errorCommon";
-	}
-	
-	@ExceptionHandler(NoHandlerFoundException.class)
-	@ResponseStatus(value = HttpStatus.NOT_FOUND)
-	public String hanble404(Exception e) {
-		return "error/custom404";
-	}
+	/*
+	 * @ExceptionHandler(Exception.class) public String handle(Exception e, Model
+	 * model) { model.addAttribute("exception", e); return "error/errorCommon"; }
+	 * 
+	 * @ExceptionHandler(NoHandlerFoundException.class)
+	 * 
+	 * @ResponseStatus(value = HttpStatus.NOT_FOUND) public String
+	 * hanble404(Exception e) { return "error/custom404"; }
+	 */
 }

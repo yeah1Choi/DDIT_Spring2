@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,6 +36,10 @@ public class NoticeServiceImpl implements INoticeService {
 	
 	@Inject
 	private IProfileMapper profileMapper;
+	
+	// 스프링 시큐리티를 활용한 비밀번호 암호화를 처리할 PasswordEncoder 의존성 주입
+	@Inject
+	private PasswordEncoder pe;
 	
 	private TelegramSendController tst = new TelegramSendController();
 
@@ -219,12 +224,18 @@ public class NoticeServiceImpl implements INoticeService {
 			}
 
 			memberVO.setMemProfileImg(profileImg);
+			
+			// 비밀번호 암호화(스프링 시큐리티 적용 후)
+			memberVO.setMemPw(pe.encode(memberVO.getMemPw()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		int status = loginMapper.signup(memberVO);
 		if (status > 0) { // 등록 성공
+			// 한명의 회원이 등록될 때 하나의 권한을 무조건 가질 수 있도록 권한 등록(스프링 시큐리티 적용 후)
+			loginMapper.signupAuth(memberVO.getMemNo());
+			
 			result = ServiceResult.OK;
 		} else { // 등록 실패
 			result = ServiceResult.FAILED;
@@ -308,6 +319,8 @@ public class NoticeServiceImpl implements INoticeService {
 				profileImg = "/resources/profile/" + fileName;
 			}
 			memberVO.setMemProfileImg(profileImg);
+			
+			memberVO.setMemPw(pe.encode(memberVO.getMemPw()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

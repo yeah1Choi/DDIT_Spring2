@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.or.ddit.ServiceResult;
 import kr.or.ddit.service.INoticeService;
+import kr.or.ddit.vo.CustomUser;
 import kr.or.ddit.vo.crud.NoticeMemberVO;
 
 @Controller
@@ -26,14 +28,20 @@ public class NoticeProfileController {
 			HttpServletRequest req, RedirectAttributes ra, Model model) {
 		String goPage = "";
 		
-		HttpSession session = req.getSession();
-		NoticeMemberVO sessionMember = (NoticeMemberVO) session.getAttribute("SessionInfo");
+		// [일반적인 방법] 세션을 활용
+//		HttpSession session = req.getSession();
+//		NoticeMemberVO sessionMember = (NoticeMemberVO) session.getAttribute("SessionInfo");
+//		
+//		if(sessionMember == null) {
+//			ra.addFlashAttribute("message", "로그인 후 이용가능합니다 !");
+//			return "redirect:/notice/login.do";
+//		}
+//		NoticeMemberVO member = noticeService.selectMember(sessionMember.getMemId());
 		
-		if(sessionMember == null) {
-			ra.addFlashAttribute("message", "로그인 후 이용가능합니다 !");
-			return "redirect:/notice/login.do";
-		}
-		NoticeMemberVO member = noticeService.selectMember(sessionMember.getMemId());
+		// [스프링 시큐리티] 시큐리티 세션을 활용
+		CustomUser user = (CustomUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		NoticeMemberVO memberVO = user.getMember();
+		NoticeMemberVO member = noticeService.selectMember(memberVO.getMemId());
 		
 		if(member != null) {
 			model.addAttribute("member", member);

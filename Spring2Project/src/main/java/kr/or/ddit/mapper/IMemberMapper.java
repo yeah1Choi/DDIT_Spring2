@@ -20,5 +20,5 @@ public interface IMemberMapper {
 	public void deleteAuth(int userNo);
 
 	public void delete(int userNo);
-	
+
 }

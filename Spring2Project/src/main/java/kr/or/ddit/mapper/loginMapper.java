@@ -14,4 +14,8 @@ public interface loginMapper {
 
 	public NoticeMemberVO findPw(NoticeMemberVO memberVO);
 
+	public NoticeMemberVO readByUserId(String username);
+
+	public void signupAuth(int memNo);
+
 }

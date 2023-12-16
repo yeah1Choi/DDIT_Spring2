@@ -70,6 +70,12 @@ public class NoticeLoginController {
 		}
 		return goPage;
 	}
+	
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/notice/login.do";
+	}
 
 	// 아이디 중복 체크를 확인하는 메소드로 주소가 새로고침이 없이 이루어져야하는 기능이기 때문에 비동기 ajax에 담겨 컨트롤러로 넘어온 데이터
 	// ajax에 담겨온 데이터는 memId 하나다. <- 단일 데이터

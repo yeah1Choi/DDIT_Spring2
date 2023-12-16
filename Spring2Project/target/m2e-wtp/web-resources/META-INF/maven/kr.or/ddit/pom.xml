@@ -241,6 +241,33 @@
 			<version>${org.aspectj-version}</version>
 		</dependency>
 		
+		<!-- 스프링 시큐리티 라이브러리 의존관계 정의 -->
+		<!-- 스프링 시큐리티를 웹에서 동작하도록 해줌 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+		<!-- 스프링 시큐리티 설정을 도와줌 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+		<!-- 스프링 시큐리티 일반 기능 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+		<!-- 스프링 시큐리티 태그라이브러리를 연결해줌 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.0.7.RELEASE</version>
+		</dependency>
+		<!-- 스프링 시큐리티 라이브러리 의존관계 정의 끝 -->
+		
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

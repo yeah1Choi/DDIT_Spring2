@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
@@ -60,14 +61,21 @@
 						</div>
 						<div class="card-footer">
 							<button type="button" id="listBtn" class="btn btn-secondary">목록</button>
-							<button type="button" id="updateBtn" class="btn btn-dark">수정</button>
-							<button type="button" id="deleteBtn" class="btn btn-danger">삭제</button>
+							<sec:authentication property="principal.member" var="member"/>
+							<sec:authorize access="hasAnyRole('ROLE_MEMBER', 'ROLE_ADMIN')">
+								<!-- 이용자가 게시글 작성자이거나 관리자인 경우 보이게 함 -->
+								<c:if test="${member.memId eq notice.boWriter or member.memId eq 'admin' }">
+									<button type="button" id="updateBtn" class="btn btn-dark">수정</button>
+									<button type="button" id="deleteBtn" class="btn btn-danger">삭제</button>
+								</c:if>
+							</sec:authorize>
 						</div>
 					</form>
 				</div>
 			</div>
 			<form action="/notice/delete.do" method="post" id="delForm">
 				<input type="hidden" name="boNo" value="${notice.boNo }">
+				<sec:csrfInput/>
 			</form>
 			<div class="col-md-6"></div>
 		</div>
